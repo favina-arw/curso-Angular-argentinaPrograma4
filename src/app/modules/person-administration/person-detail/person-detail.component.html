@@ -1,0 +1,63 @@
+
+<form [formGroup]="personForm" (ngSubmit)="guardarCambios()">
+
+    <mat-card class="person-container" style="padding: 20px;" >    
+        
+        <div>
+            <button type="button" (click)="volverAtras()">
+                <mat-icon>arrow_back</mat-icon>
+            </button>
+
+            <h2 class="subtitulo">Editando informacion de la persona</h2>
+        </div>
+        
+
+        <mat-form-field class="person-input">
+            <mat-label> Nombre: </mat-label>
+            <input matInput type="text" formControlName="name">
+
+            <div *ngIf="personForm.controls['name'].invalid && (personForm.controls['name'].dirty || personForm.controls['name'].touched)">
+                <mat-hint *ngIf="personForm && personForm.controls && personForm.controls['name'].errors && personForm.controls['name'] && personForm.controls['name'].errors['required']" 
+                    style="color: red;">Campo requerido</mat-hint>
+            </div>
+            
+        </mat-form-field>
+
+        
+
+        <mat-form-field class="person-input">
+            <mat-label>Apellido</mat-label>
+            <input matInput type="text" formControlName="lastName">
+
+            <div *ngIf="personForm.controls['lastName'].invalid && (personForm.controls['lastName'].dirty || personForm.controls['lastName'].touched)">
+                <mat-hint *ngIf="personForm && personForm.controls && personForm.controls['lastName'].errors && personForm.controls['lastName'] && personForm.controls['lastName'].errors['required']" 
+                    style="color: red;">Campo requerido</mat-hint>
+            </div>
+
+        </mat-form-field>
+
+
+
+        <mat-form-field class="person-input">
+            <mat-label>Edad</mat-label>
+            <input matInput type="text" formControlName="age">
+
+            <div *ngIf="personForm.controls['age'].invalid && (personForm.controls['age'].dirty || personForm.controls['age'].touched)">
+                <mat-hint *ngIf="personForm && personForm.controls && personForm.controls['age'].errors && personForm.controls['age'] && personForm.controls['age'].errors['required']" 
+                    style="color: red;">Campo requerido</mat-hint>
+                
+                <mat-hint *ngIf="personForm && personForm.controls && personForm.controls['age'].errors && personForm.controls['age'] && personForm.controls['age'].errors['min']" 
+                    style="color: red;">La edad minima debe ser 0</mat-hint>
+
+                <mat-hint *ngIf="personForm && personForm.controls && personForm.controls['age'].errors && personForm.controls['age'] && personForm.controls['age'].errors['max']" 
+                    style="color: red;">La edad maxima debe ser 99</mat-hint>
+            </div>
+
+        </mat-form-field>
+        
+        <button type="submit" [disabled]="personForm.invalid">Guardar</button>
+
+    </mat-card>
+</form>
+
+
