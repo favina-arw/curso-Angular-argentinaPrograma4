@@ -1,14 +1,18 @@
+import { Modelo } from "./modelo";
+
 export class Colectivo {
 
+    id: number;
     patente: string;
-    catidadAsientos: number;
-    modeloNombre: string;
-    modeloMarca: string;
+    cantidadAsientos: number;
+    modeloId: number;
+    modelo!: Modelo;
 
-    constructor(patente : string, catidadAsientos: number, modeloNombre: string, modeloMarca: string){
+    constructor(id: number, patente : string, cantidadAsientos: number, modeloId: number){
+        this.id = id;
         this.patente = patente;
-        this.catidadAsientos= catidadAsientos;
-        this.modeloNombre = modeloNombre;
-        this.modeloMarca = modeloMarca;
+        this.cantidadAsientos= cantidadAsientos;
+        this.modeloId = modeloId;
+        //this.modelo = modelo;
     }
 }

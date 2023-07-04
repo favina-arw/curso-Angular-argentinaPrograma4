@@ -1,14 +1,14 @@
 <mat-nav-list>
     <mat-list-item (click)="navegar('person/list')">
         <mat-icon mat-list-icon >person</mat-icon>
-        <h4 mat-line *ngIf="isExpanded ">Administracion de Personas </h4>
+        <h4 mat-line *ngIf="isExpanded ">Personas</h4>
     </mat-list-item>
     <mat-list-item (click)="navegar('colectivos/list')">
-        <mat-icon mat-list-icon >directions_bus </mat-icon>
-        <h4 mat-line *ngIf="isExpanded ">Administracion de Colectivos</h4>
+        <mat-icon mat-list-icon  >directions_bus </mat-icon>
+        <h4 mat-line *ngIf="isExpanded ">Colectivos</h4>
     </mat-list-item>
     <mat-list-item (click)="navegar('viajes/list')">
         <mat-icon mat-list-icon >fork_right </mat-icon>
-        <h4 mat-line *ngIf="isExpanded ">Administracion de Viajes</h4>
+        <h4 mat-line *ngIf="isExpanded ">Viajes</h4>
     </mat-list-item>
 </mat-nav-list>

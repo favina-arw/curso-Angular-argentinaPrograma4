@@ -19,8 +19,7 @@
             <div *ngIf="personForm.controls['name'].invalid && (personForm.controls['name'].dirty || personForm.controls['name'].touched)">
                 <mat-hint *ngIf="personForm && personForm.controls && personForm.controls['name'].errors && personForm.controls['name'] && personForm.controls['name'].errors['required']" 
                     style="color: red;">Campo requerido</mat-hint>
-            </div>
-            
+            </div> 
         </mat-form-field>
 
         

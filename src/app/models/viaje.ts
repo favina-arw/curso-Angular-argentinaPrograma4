@@ -2,25 +2,24 @@ import { Colectivo } from "./colectivo";
 import { Person } from "./person";
 
 export class Viaje {
-    salida: string;
+    
+    id: number;
+    origen: string;
     destino: string;
-    colectivoAsignado: Colectivo;
-    pasajeros :  Person[];
-    fechaSalida: string;
-    horaSalida: number;
-    fechaLlegada: string;
-    horaLlegada: number;
+    fechaSalida: Date;
+    fechaLlegada: Date;
+    pasajeros: number[];
+    colectivoID: number;
 
-    constructor(salida: string, destino: string, colectivoAsignado: Colectivo, 
-        pasajeros : Person[], fechaSalida: string, horaSalida: number,
-        fechaLlegada: string, horaLlegada: number){
-            this.salida = salida;
+    constructor( id: number, origen: string, destino: string, fechaSalida: string,
+        fechaLlegada: string,colectivoID: number, pasajeros: number[]){
+            this.id = id;
+            this.origen = origen;
             this.destino = destino;
-            this.colectivoAsignado = colectivoAsignado;
+            this.colectivoID = colectivoID;
+            this.fechaSalida = new Date(fechaSalida);
+            this.fechaLlegada = new Date(fechaLlegada);
             this.pasajeros = pasajeros;
-            this.fechaSalida = fechaSalida;
-            this.horaSalida = horaSalida;
-            this.fechaLlegada = fechaLlegada;
-            this.horaLlegada = horaLlegada;
     }
+    
 }
