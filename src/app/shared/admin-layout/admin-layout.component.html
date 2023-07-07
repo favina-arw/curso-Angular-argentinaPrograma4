@@ -1,17 +1,14 @@
 <app-admin-topbar (expandioBoton)="onExpandirRetraer($event)"></app-admin-topbar>
 
-<mat-drawer-container class="example-container" autosize style="height: 90%;">
+<mat-drawer-container class="example-container" autosize style="height: 100%; background-color: rgba(202, 202, 202, 0.521);">
 
-    <mat-drawer  opened class="example-sidenav" mode="side" disableClose="true" [@openClose]="estaExpandido ? 'open' : 'closed' ">
+    <mat-drawer  opened class="example-sidenav" mode="side" disableClose="true" [@openClose]="estaExpandido ? 'open' : 'closed'">
         
-        <app-admin-sidebar [isExpanded]="estaExpandido"></app-admin-sidebar>
+        <app-admin-sidebar [isExpanded]="estaExpandido" ></app-admin-sidebar>
     
     </mat-drawer>  
 
     <div style="padding: 20px">
-        <div style="text-align: center">
-          <h1> Bienvenido</h1>
-        </div>
         <router-outlet></router-outlet>
     </div>
 

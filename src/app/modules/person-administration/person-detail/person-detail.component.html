@@ -1,13 +1,17 @@
+<!---->
+<div *ngIf="selectedPerson">
+    <button type="button" (click)="volverAtras()">
+        <mat-icon>arrow_back</mat-icon>
+    </button>
+</div>
 
+            
 <form [formGroup]="personForm" (ngSubmit)="guardarCambios()">
 
     <mat-card class="person-container" style="padding: 20px;" >    
         
         <div>
-            <button type="button" (click)="volverAtras()">
-                <mat-icon>arrow_back</mat-icon>
-            </button>
-
+            
             <h2 class="subtitulo">Editando informacion de la persona</h2>
         </div>
         
@@ -54,7 +58,8 @@
 
         </mat-form-field>
         
-        <button type="submit" [disabled]="personForm.invalid">Guardar</button>
+        <button mat-raised-button type="button" [mat-dialog-close]="false">Cancelar</button>
+        <button mat-raised-button type="submit" [disabled]="personForm.invalid">{{(selectedPerson)? 'Actualizar' : 'Guardar'}}</button>
 
     </mat-card>
 </form>

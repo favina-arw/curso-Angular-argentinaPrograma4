@@ -25,7 +25,6 @@ export class PersonDetailComponent implements OnInit{
     private personService: PersonService, 
     private fb: FormBuilder,
     private route : ActivatedRoute,
-    private _location: Location,
     private router: Router,
     private matSnackBar: MatSnackBar
     ){}
@@ -54,7 +53,7 @@ export class PersonDetailComponent implements OnInit{
         })
       }
     }, error => {
-      console.log(error);
+      //console.log(error);
       this.matSnackBar.open("No se encontro la persona", "Cerrar", {"duration": 4000});
       this.router.navigate(['person', 'list']);
     })

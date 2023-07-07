@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { Subscriber } from 'rxjs';
 import { Person } from 'src/app/models/person';
 import { PersonService } from 'src/app/services/person.service';
+import { PersonDetailComponent } from '../person-detail/person-detail.component';
 
 
 @Component({
@@ -13,6 +15,11 @@ import { PersonService } from 'src/app/services/person.service';
 })
 export class PersonListComponent implements OnInit{
 
+
+  crearPersonaBis() {
+    this._dialog.open(PersonDetailComponent)
+  }
+
   personList: Person[] = [];
   
   selectedPerson: Person  |  null = null;
@@ -20,7 +27,8 @@ export class PersonListComponent implements OnInit{
   constructor(
     private personService : PersonService,
     private snackBar: MatSnackBar,
-    private router: Router
+    private router: Router,
+    private _dialog: MatDialog 
     ){
   }
 

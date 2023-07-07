@@ -9,11 +9,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDatepickerModule } from '@angular/material/datepicker'
 import { MatFormFieldModule, MatLabel } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
-import {MatInputModule} from '@angular/material/input';
+import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSnackBarModule } from '@angular/material/snack-bar'
-
-
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 
@@ -33,7 +32,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar'
     MatCardModule,
     MatInputModule,
     MatIconModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatDialogModule
   ], 
   providers: [{provide: PersonService}
   ],

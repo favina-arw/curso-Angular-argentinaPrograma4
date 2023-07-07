@@ -12,6 +12,7 @@ import { MatNativeDateModule, MatOptionModule } from '@angular/material/core';
 import { MatInputModule } from '@angular/material/input';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSelectModule } from '@angular/material/select';
+import { MatButtonModule } from '@angular/material/button';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { MatSelectModule } from '@angular/material/select';
     MatOptionModule,
     MatInputModule,
     MatSnackBarModule,
-    MatSelectModule
+    MatSelectModule,
+    MatButtonModule
     
   ]
 })

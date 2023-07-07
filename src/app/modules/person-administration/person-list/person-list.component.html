@@ -1,23 +1,27 @@
-<button mat-icon-button (click)="crearPersona()">
+<button mat-icon-button (click)="crearPersonaBis()" style="margin-bottom: 5px;">
     <mat-icon>add</mat-icon>
 </button>
 
 <div *ngFor="let pers of personList" class="general-container">
     <div class="single-container">
-        <span>Nombre: {{pers.nombre}}</span>
-        <span>Apellido: {{pers.apellido}}</span>
-        <span>Edad: {{pers.edad}}</span>
+        <div class="datosPersona">
+            <span>Nombre: {{pers.nombre}}</span><br>
+            <span>Apellido: {{pers.apellido}}</span><br>
+            <span>Edad: {{pers.edad}}</span><br>
 
-        <div *ngIf="pers.edad > 18">
-            <span style="font-weight: bold;">Es mayor de edad</span>
+            <div *ngIf="pers.edad > 18">
+                <span style="font-weight: bold;">Es mayor de edad</span>
+            </div>
+            
+            <div *ngIf="pers.edad < 18">
+                <span style="font-weight: bold;">Es menor de edad</span>
+            </div>
         </div>
-        
-        <div *ngIf="pers.edad < 18">
-            <span style="font-weight: bold;">Es menor de edad</span>
+        <div class="botones">
+            <button mat-stroked-button color="primary" class="boton" (click)="seleccionarPersona(pers)">Editar</button>
+            
+            <button mat-stroked-button color="warn" class="boton" (click)="borrarPersona(pers)">Borrar</button>
         </div>
-
-        <button mat-raised-button (click)="seleccionarPersona(pers)">Editar</button>
-        
-        <button mat-raised-button (click)="borrarPersona(pers)">Borrar</button>
     </div>
+        
 </div>
