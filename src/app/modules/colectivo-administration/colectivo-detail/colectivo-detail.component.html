@@ -1,0 +1,66 @@
+<button type="button" (click)="volverAtras()">
+    <mat-icon>arrow_back</mat-icon>
+  </button>
+  
+<br>
+
+<mat-card>
+    
+    
+    <mat-card-title style="padding: 20px">
+        Creacion/Edición de un Colectivo
+    </mat-card-title>
+
+
+    <mat-card-content>
+        <form [formGroup]="colectivoForm" (ngSubmit)="guardarCambios()">
+            <div style="display:flex; gap: 15px; margin-bottom: 15px">
+
+                <mat-form-field>
+                    <mat-label>Patente</mat-label>
+                    <input matInput type="text" formControlName="patente">
+                    <div *ngIf="colectivoForm.controls['patente'].invalid &&
+                        (colectivoForm.controls['patente'].dirty || colectivoForm.controls['patente'].touched)">
+                        <mat-hint *ngIf="colectivoForm.controls['patente'].errors['patente']" style="color: red">
+                            complete el campo
+                        </mat-hint>
+                    </div>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <mat-label>Cantidad de Asientos</mat-label>
+                    <input matInput type="text" formControlName="cantidadAsientos">
+                    <div *ngIf="colectivoForm.controls['cantidadAsientos'].invalid &&
+                        (colectivoForm.controls['cantidadAsientos'].dirty || colectivoForm.controls['cantidadAsientos'].touched)">
+                        <mat-hint *ngIf="colectivoForm.controls['cantidadAsientos'].errors['cantidadAsientos']" style="color: red">
+                            complete el campo
+                        </mat-hint>
+                    </div>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <mat-label>Marca</mat-label>
+
+                    <mat-select formControlName="modeloId">
+                        <mat-option *ngFor="let modelo of modeloList" [value]="modelo.id">
+                          {{modelo.nombre}} - {{modelo.marca}}
+                        </mat-option>
+                    </mat-select>
+                    <div *ngIf="colectivoForm.controls['modeloId'].invalid &&
+                        (colectivoForm.controls['modeloId'].dirty || colectivoForm.controls['modeloId'].touched)">
+                        <mat-hint *ngIf="colectivoForm.controls['modeloId'].errors['modeloId']" style="color: red">
+                            complete el campo
+                        </mat-hint>
+                    </div>
+                </mat-form-field>
+
+            </div>
+
+            <button type="submit" style="float: right" mat-button [disabled]="colectivoForm.invalid">
+                Guardar
+            </button>
+
+        </form>
+    </mat-card-content>
+</mat-card>
+

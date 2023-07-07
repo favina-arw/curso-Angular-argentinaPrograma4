@@ -34,14 +34,12 @@ export class PersonDetailComponent implements OnInit{
     
     this.route.paramMap.subscribe(params => {
       const id = params.get("id");
-      console.log("el id que estoy editando es: " + id);
+      //console.log("el id que estoy editando es: " + id);
       if (id){
         // @ts-ignore
         this.findPerson(Number(id));
       }
     })
-
-   // this.nameControl.valueChanges.subscribe(res => console.log(res));
   }
 
   findPerson(id: number){
@@ -57,7 +55,7 @@ export class PersonDetailComponent implements OnInit{
       }
     }, error => {
       console.log(error);
-      this.matSnackBar.open(error, "Cerrar");
+      this.matSnackBar.open("No se encontro la persona", "Cerrar", {"duration": 4000});
       this.router.navigate(['person', 'list']);
     })
   }
@@ -73,37 +71,33 @@ export class PersonDetailComponent implements OnInit{
 
     if(this.selectedPerson && this.selectedPerson.id){
       
-      console.log("Actualizando una persona");
+      //console.log("Actualizando una persona");
 
       body.id = this.selectedPerson.id;
 
       this.personService.actualizarPersona(body).subscribe( res => {
-        this.matSnackBar.open("Se guardaron los cambios correctamente", "Cerrar");
+        this.matSnackBar.open("Se guardaron los cambios correctamente", "Cerrar", {"duration": 4000});
         this.router.navigate(['person', 'list'])
       }, error => {
-        console.log(error);
-        this.matSnackBar.open("Error al actualizar persona", "Cerrar");
+        //console.log(error);
+        this.matSnackBar.open("Error al actualizar persona, verifique los datos ingresados", "Cerrar", {"duration": 4000});
       });
       
     }else{
-      console.log("Creando una persona");
+      //console.log("Creando una persona");
 
       this.personService.crearPersona(body).subscribe( res => {
-        this.matSnackBar.open("Se creo la persona correctamente", "Cerrar");
+        this.matSnackBar.open("Se creo la persona correctamente", "Cerrar", {"duration": 4000});
         this.router.navigate(['person', 'list'])
       }, error => {
-        console.log(error);
-        this.matSnackBar.open("Error al crear persona", "Cerrar");
+        //console.log(error);
+        this.matSnackBar.open("Error al crear persona, verifique los datos ingresados", "Cerrar", {"duration": 4000});
       });
     }
-
-    console.log("Nombre: " + this.personForm.get('name')?.value);
-    console.log("Apellido: " + this.personForm.get('lastName')?.value);
-    console.log("Edad: " + this.personForm.get('age')?.value);
   }
 
   volverAtras(){
-    this._location.back()
+    this.router.navigate(['person', 'list']);
   }
 
 

@@ -1,1 +1,49 @@
-<p>colectivo-list works!</p>
+<div>
+    <button mat-button (click)="agregarColectivo()">
+        <mat-icon>add</mat-icon>
+    </button>
+</div>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    
+    <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> ID </th>
+        <td mat-cell *matCellDef="let element">{{element.id}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="patente">
+        <th mat-header-cell *matHeaderCellDef> Patente </th>
+        <td mat-cell *matCellDef="let element">{{element?.patente}}</td>
+    </ng-container>
+    
+    <ng-container matColumnDef="cantidadAsientos">
+        <th mat-header-cell *matHeaderCellDef> Cantidad de Asientos </th>
+        <td mat-cell *matCellDef="let element">{{element?.cantidadAsientos}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="idModeloNombre">
+        <th mat-header-cell *matHeaderCellDef> Nombre </th>
+        <td mat-cell *matCellDef="let element">{{element?.idModelo?.nombre}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="idModelo">
+        <th mat-header-cell *matHeaderCellDef> Marca </th>
+        <td mat-cell *matCellDef="let element">{{element?.idModelo?.marca}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="acciones">
+        <th mat-header-cell *matHeaderCellDef> Acciones </th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-icon-button (click)="seleccionarColectivo(element)" >
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button (click)="borrarColectivo(element.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+</table>

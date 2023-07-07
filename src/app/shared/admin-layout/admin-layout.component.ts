@@ -11,7 +11,7 @@ import {animate, state, style, transition, trigger} from "@angular/animations";
         width: '70px',
       })),
       state('open', style({
-        width: '270px',
+        width: '200px',
       })),
 
       transition('* => closed', [

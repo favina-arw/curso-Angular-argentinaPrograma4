@@ -4,22 +4,23 @@ import { Person } from "./person";
 export class Viaje {
     
     id: number;
-    origen: string;
-    destino: string;
+    lugarSalida: string;
+    lugarDestino: string;
     fechaSalida: Date;
     fechaLlegada: Date;
-    pasajeros: number[];
-    colectivoID: number;
+    personaId: number[];
+    idColectivo: number;
+    colectivo: Colectivo;
 
     constructor( id: number, origen: string, destino: string, fechaSalida: string,
-        fechaLlegada: string,colectivoID: number, pasajeros: number[]){
+        fechaLlegada: string,idColectivo: number, pasajeros: number[]){
             this.id = id;
-            this.origen = origen;
-            this.destino = destino;
-            this.colectivoID = colectivoID;
+            this.lugarSalida = origen;
+            this.lugarDestino = destino;
+            this.idColectivo = idColectivo;
             this.fechaSalida = new Date(fechaSalida);
             this.fechaLlegada = new Date(fechaLlegada);
-            this.pasajeros = pasajeros;
+            this.personaId = pasajeros;
     }
     
 }

@@ -47,12 +47,12 @@ export class PersonListComponent implements OnInit{
 
   borrarPersona(persona : Person){
     this.personService.borrar(persona.id).subscribe( res =>{
-      this.snackBar.open("Se borro la persona correctamente", "Cerrar")
+      this.snackBar.open("Se borro la persona correctamente", "Cerrar", {"duration": 4000})
       this.router.navigate(['person', 'list'])
       this.loadPeople();
     }, error => {
       console.log(error);
-      this.snackBar.open("Error intentando borrar persona", "Cerrar")
+      this.snackBar.open("Error intentando borrar persona", "Cerrar", {"duration": 4000})
     });
   }
 
